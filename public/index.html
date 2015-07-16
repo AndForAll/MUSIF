@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<title>MUSIF</title>
+	<!-- CSS -->
+	<link href='http://fonts.googleapis.com/css?family=Biryani:200,400,700,800,900' rel='stylesheet' type='text/css'>
+	<!-- <link rel="stylesheet" type="text/css" href="css/normalize.min.css"> -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-app="myApp" >
+
+	<!-- nav bar if available -->
+	<nav></nav>
+
+  <body ng-app="myApp">
+
+   <header>
+     <a ui-sref='home'><h1>MUSIF</h1></a>
+   </header>
+
+   <!-- ui-view is where our templates go -->
+   <div ui-view id="app">
+   </div>
+
+
+
+
+	<!-- footer bar if available -->
+	<footer></footer>
+
+
+
+<!-- LIBS -->
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="lib/angular.js"></script>
+<script type="text/javascript" src="lib/angular-ui-router.js"></script>
+
+
+
+<!-- SCRIPTS -->
+
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/router.js"></script>
+<script type="text/javascript" src="js/controllers/home.js"></script>
+<script type="text/javascript" src="js/controllers/play.js"></script>
+<script type="text/javascript" src="js/services/HD-GIF.FACTORY.js"></script>
+<script type="text/javascript" src="js/services/AUDIO.FACTORY.js"></script>
+
+
+  </body>
+
+</html>

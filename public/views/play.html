@@ -1,0 +1,20 @@
+<div class='play-container'>
+
+<div ui-view class="play-top-container"></div>
+
+<!-- need to name the second ui view in a template -->
+
+
+
+<div ui-view='play-bottom-container' class="play-bottom-container"></div>
+
+<div class="play-bottom-container">
+  <audio id='player' controls>
+    <source src="../media/test.wav">
+  </audio>
+  <h1 ng-click="testUpdate()">TEST</h1>
+</div>
+
+
+
+</div>

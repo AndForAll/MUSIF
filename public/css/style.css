@@ -1,0 +1,114 @@
+
+header{
+  width: 100%;
+  height: 10%;
+  background-color: white;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+header h1 {
+  text-align: right;
+  font-family: 'Biryani', sans-serif;
+  font-size: 2em;
+  transition: all 0.9s ease;
+  font-weight: 400;
+  letter-spacing: 80px;
+  color: black;
+}
+
+
+.home-container {
+  width:100%;
+  top: 10%;
+  height: 0px;
+  padding-bottom: 60%;
+  background-color: #FEDD9D;
+  text-align: center;
+  left: 0;
+  position: absolute;
+}
+
+.title {
+  text-align: center;
+  margin-top: 25%;
+
+  font-family: 'Biryani', sans-serif;
+  font-size: 4em;
+  transition: all 0.9s ease;
+  font-weight: 900;
+  letter-spacing: 80px;
+  color: black;
+}
+
+.title:hover {
+  color: #0959FF;
+}
+
+
+/*PINKY*/
+/*color: #FF8A8A;*/
+/*color: #F5DEBC;*/
+/*color: #EDCF9B;*/
+/*color: #FEDD9D;*/
+
+/*GREY*/
+/*color: #8F8B8B;*/
+
+/*BLUES*/
+/*color: #004FD6;*/
+/*color: #0250d7;*/
+/*color: #2022F1;*/
+/*color: #0959FF;* USE FOR HIHG/
+/*color: #2420C0;*/
+
+/*color: #F09876;*/
+
+.play-top-container {
+  width:94%;
+  padding-left:3%;
+  padding-right:3%;
+  height: 60%;
+  /*background-color: black;*/
+  padding-bottom: 8%;
+  position:absolute;
+  top: 10%;
+  left: 0;
+
+}
+
+.play-bottom-container {
+  width:94%;
+  padding-left:3%;
+  padding-right:3%;
+  height: 15%;
+  /*background-color: white;*/
+  position:absolute;
+  margin-top: 65%;
+  /*float: bottom;*/
+  left:0;
+  text-align: center;
+}
+
+
+.play-hd-gif-container {
+  width:100%;
+  height:100%;
+  position:absolute;
+  left: 0;
+  /*background: red;*/
+}
+
+.gif-frame {
+  width: 100%;
+  position:absolute;
+  left:0;
+  height:100%;
+  /*background-color: red;*/
+}
+
+.gif-frame img {
+  width: 100%;
+
+}

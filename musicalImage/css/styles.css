@@ -1,0 +1,78 @@
+
+body{
+	background: url('../img/light.gif') no-repeat fixed center center;
+	background-size:cover;
+}
+
+#black{
+	position: absolute;
+	z-index: 3;
+	/*display:inline-table;*/
+
+}
+
+#red{
+	position: absolute;
+	z-index: 3;
+	/*display:inline-table;*/
+
+}
+
+.container{
+	margin: 0  auto;
+	width:960px;
+	
+}
+.inlineList{
+	
+}
+ul {
+	margin:0 auto;
+	width:700px;
+}
+
+.listy {
+	padding-top:100px;
+	display:inline-block;
+	padding:30px;
+	text-align:center;
+	background:#FAFAFA;
+	opacity:0.7; 
+	width:100px;
+}
+
+.title{
+	font-size:30px;
+	font-weight:400;
+	text-align:center;
+	background:#FAFAFA;
+	opacity:0.7;
+	margin:0 auto;
+	width:400px;
+
+}
+
+.content{
+	padding-top:200px;
+	width:310px;
+	margin:0 auto;
+}
+
+button {
+	width:100px;
+	height:50px;
+	padding-top:500px;
+	padding:10px;
+}
+
+.must{
+	display:none;
+	margin-top:-150px;
+	margin-left:130px;
+}
+
+.imageResult{
+	display:none;
+	margin-top:-300px;
+	margin-left:90px;
+}

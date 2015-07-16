@@ -1,0 +1,19 @@
+{
+  "name": "MusIF",
+  "version": "1.0.0",
+  "description": "",
+  "main": "._server.js",
+  "dependencies": {
+    "angular": "^1.4.0-rc.1",
+    "body-parser": "^1.5.2",
+    "express": "^4.0.0",
+    "connect": "^3.3.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
