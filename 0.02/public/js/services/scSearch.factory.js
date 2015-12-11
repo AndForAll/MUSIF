@@ -34,6 +34,42 @@ angular.module('app.scSearch.factory', [])
           useable_tracks: streamable_tracks
         };
       });
-      } //end of get songs
+    }, //end of get songs
+    sendAnalysis: function(track){ // thought needed two sep func but maybe stay in this until we get a reposnse that says we have in the info
+       return $http({
+                method: 'POST',
+                url: '/track-analysis',
+                data: {
+                  track: track.stream_url
+                }
+          //promise - so when it retrieves the info then send it to controller. $http has it's own promise stuff built in
+        }).then(function(response){
+            console.log('HERE IS THE RESPONSE FROM THE SERVER');
+            console.log(response);
+
+            //if we get a success msg
+            if(response.data.success !=0){
+                  console.log("successfully sent for analysis");
+                  return response;
+            }else{
+                  console.log("FAILED TO SEND TO ECHONEST");
+                  console.log(response.data);
+                  //ERROR MESSAGE SHOULD COME UP
+                  return response.data.error;
+            }
+        });
+
+    }, //end of send analysis
+    getAnalysis: function() {
+      return $http({
+                    method: 'GET',
+                    url: '/track-analysis'
+                    //promise - so when it retrieves the info then send it to controller. $http has it's own promise stuff built in
+            }).then(function(res){
+                console.log("WE FUCKING GOT SOMETHING");
+                console.log(res);
+                return res.data;
+            });
+    }//end of get analysis
     }// END OF RETURN
   })//End of scSearch

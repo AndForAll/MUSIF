@@ -49,6 +49,10 @@ server.listen(port, function() {
     console.log('Server running at port:' + port);
 });
 
+/*----------- M Y  V A R I A B L E S -----------*/
+var analyizedSongs;
+
+
 
 /*----------- S O U N D C L O U D  S T U F F -----------*/
 
@@ -90,11 +94,14 @@ app.post('/track-analysis', function(req, res) {
     function callback(error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log('-----------------------SUCCESS');
-            console.log(body);
+            // console.log(body);
             body = JSON.parse(body);
-            console.log(body.response.track);
-            console.log(body.response.track.status);
-            console.log(body.response.track.id);
+
+            //Add this new song to our alaysed array - eventually this will be a database but im lazy RN
+            analyizedSong = body.response.track;
+            console.log(analyizedSong);
+            console.log(analyizedSong.id);
+            console.log(analyizedSong.status);
 
             // Now let's send the news to the client!
             //This won't have track analysis url
@@ -105,8 +112,6 @@ app.post('/track-analysis', function(req, res) {
               success: 'Song sent for analysis',
               data: body
             });
-
-            checkAnalysis(body.response.track.id);
 
         }else{
             console.log(error);
@@ -122,57 +127,54 @@ app.post('/track-analysis', function(req, res) {
     request(options, callback);
 });
 
-function checkAnalysis(track_id){
-  //So we need to see if analysis is finished
-
-  var checkAnalysisTimer = setInterval( function () {
-
-  	console.log("Looking for status");
-
-    Echonest.get('track/profile', { id: track_id, bucket: "audio_summary" }, function (err, res) {
-
-      if (err) {
-        console.log("there was an error");
-        console.log(err);
-        console.log("exited function");
-        clearInterval(checkAnalysisTimer);
-      } else {
-
-        console.log('---------------------------------------------');
-        console.log(res.response.track.status);
-        console.log('---------------------------------------------');
-
-          if(res.response.track.status != 'pending'){
-            console.log('ITS FINISHED!!!!!!');
-            console.log('---------------------------------------------');
-            console.log(res.response.track.audio_summary.analysis_url);
-            console.log('---------------------------------------------');
-            //ASSIGN THE URL TO A VAR SO WE CAN GET ANALYSIS INFO
-            var anal_url = res.response.track.audio_summary.analysis_url;
-
-            //CLEAR THE TIMER BECAUSE WE ARE DONE!!!!
-            clearInterval(checkAnalysisTimer);
-
-          }else{
-            console.log('STILL NOT FINISHED');
-          }
-      }
-    }); //END OF ECHONEST GET REQ
-  },4000); //END OF checkAnalysisTimer
-
-} // END OF CHECK ANALYSIS FUNCTION
-
 // //SEND TO CLIENT
-// app.get('/track-analysis', function(req, res) {
-//     console.log('THIS IS THE REQ BODY');
-//     console.log(req.body);
-//
-//       if(){
-//
-//       }
-//
-//       res.json({
-//         success: 'Song sent for analysis',
-//         data: anal_url
-//       });
-// })
+app.get('/track-analysis', function(request, response) {
+    console.log('THIS IS THE REQ BODY');
+    console.log(request.data);
+
+    var checkAnalysisTimer = setInterval( function () {
+
+    	  console.log("Looking for status");
+
+        Echonest.get('track/profile', { id: analyizedSong.id, bucket: "audio_summary" }, function (err, res) {
+
+              //IF ALL GOES TO SHIT
+              if (err) {
+                console.log("there was an error");
+                console.log(err);
+
+                  response.json({
+                    error: err
+                  });
+                clearInterval(checkAnalysisTimer);
+              } else {
+
+                console.log('---------------------------------------------');
+                console.log(res.response.track.status);
+                console.log('---------------------------------------------');
+
+                  if(res.response.track.status != 'pending'){
+                    //ITS FUCKING DONE //SO UPDATE OBJECT
+                    analyizedSong = res.response.track;
+
+                    console.log('ITS FINISHED!!!!!!');
+                    console.log('---------------------------------------------');
+                    console.log(analyizedSong.audio_summary.analysis_url);
+                    console.log('---------------------------------------------');
+
+                    response.json({
+                      success: "ITS FUCKING DONE",
+                      data: analyizedSong
+                    });
+
+                    //CLEAR THE TIMER BECAUSE WE ARE DONE!!!!
+                    clearInterval(checkAnalysisTimer);
+
+                  }else{
+                    console.log('STILL NOT FINISHED');
+                  }
+              }
+            }); //END OF ECHONEST GET REQ
+    },4000); //END OF checkAnalysisTimer
+
+})
