@@ -1,0 +1,23 @@
+Posting tracks for analysis
+is a HTTP POST req....
+
+apprently can do with [request module]
+
+Something like....(NEED TO LOOK UP A FULL EXAMPLE OF WHERE THIS WOULD SIT,
+either in request module examples or the code for the echonestjs  module...)
+
+{ method: 'POST', url: 'http://developer.echonest.com/api....track/upload?api_key=[KEY]',
+  headers: {
+    'content-type':
+            },
+  body : data
+} /// but i think difference is POST needs header & body
+
+Try analyze by URL first
+need SC API key shit
+
+soundcloud
+url = "http://api.soundcloud.com/tracks/"+str(track_id)+"/stream?consumer_key="+key
+
+something along these lines
+curl -X POST "http://developer.echonest.com/api/v4/track/upload" -d "api_key=H4RHH3GOJ1P4FJHXK&url=http://example.com/audio.mp3"
