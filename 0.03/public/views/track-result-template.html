@@ -1,0 +1,22 @@
+<div layout="column" class="sc-results-inner" layout-align="space-around start" layout-margin >
+
+  <div ng-repeat="track in songResults" class="track-container">
+
+    <div layout="row" class="track" layout-align="space-around center" >
+
+      <div flex="20" class="res-thumb">
+        <img ng-src="{{track.artwork_url}}" alt="Description" />
+      </div>
+
+      <div flex="60" layout="column" layout-align="center start">
+        <h1>{{track.title}}</h1>
+        <h4>{{track.user.username}}</h4>
+      </div>
+
+      <div flex="15">
+        <button ng-click="chooseSong($index);">></button>
+      </div>
+    </div>
+
+  </div>
+</div>

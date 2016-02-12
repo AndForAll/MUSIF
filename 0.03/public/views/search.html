@@ -1,0 +1,14 @@
+<div class="search-container" layout="column">
+
+  <div id="Search-input-Container" layout="row" layout-align="center center">
+    <input flex="80" ng-init="query='Search SoundCloud!'" ng-model="query">
+    <button flex="5" ng-click="searchSC(query);"><h2>GO</h2></button>
+  </div>
+
+  <div id="search-results" layout="column" layout-align="space-around center" flex="80">
+
+      <sc-results class="sc-results">
+      </sc-results>
+
+  </div>
+</div>

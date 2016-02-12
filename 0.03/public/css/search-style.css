@@ -1,0 +1,143 @@
+/*
+COLOURS
+
+#e9a2c2  #fac
+plum
+hsl(332,61,77)
+rgb(233,162,194)
+
+#aed2e2  #bde
+lightblue
+hsl(198,47,78)
+rgb(174,210,226)
+
+#8dcdbf  #9dc
+mediumaquamarine
+hsl(166,39,67)
+rgb(141,205,191)
+
+#a783b3  #a8b
+darkgray
+hsl(285,23,60)
+rgb(167,131,179)
+
+*/
+
+
+body{
+  /*background-color: rgb(231,223,203);*/
+  min-height: 100%;
+  font-family: 'Biryani', sans-serif;
+  font-size: 12px;
+  background-color: rgb(141,205,191);
+}
+
+.main-cont{
+  background-color: rgb(141,205,191);
+}
+
+.search-container{
+  /*background-color: white;*/
+  width: 75vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#Search-input-Container{
+  padding: 5%;
+  margin-top: 20vh;
+}
+
+#Search-input-Container input{
+  min-height: 100px;
+  max-height: 100px;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: black;
+  text-transform: uppercase;
+  border: 5px solid black;
+  background-color: white;
+  padding : 0 20px;
+}
+
+#Search-Container input:focus {
+  border: 5px solid black;
+  outline: none;
+/*  background: rgb(231,223,203);*/
+}
+
+#Search-input-Container button {
+  min-height: 100px;
+  max-height: 100px;
+  min-width: 150px;
+  background-color: rgb(167,131,179);
+  text-align: center;
+  border: 5px solid black;
+}
+
+#Search-input-Container button h2{
+  font-size: 5em;
+  padding: 0 !important;
+  margin: 0 !important;
+  letter-spacing: 10px;;
+  color: black;
+  font-weight: bold;
+}
+
+#search-results{
+  /*background-color: white;*/
+}
+
+.sc-results{
+
+}
+
+.sc-results-inner{
+  width: 85%;
+/*  background-color:black;*/
+}
+
+.track-container{
+  /*padding: 1%;*/
+  width: 100% !important;
+  background-color: black;
+}
+
+.track{
+  min-width: 95% !important;
+
+  border-bottom-style: solid;
+  border-width: 5px;
+
+  border-color:black;
+  background-color: white;
+  padding: 3%;
+}
+
+.track img {
+  width: 100%;
+}
+
+.track h1{
+  font-size: 1.5em;
+  font-weight: 300;
+  padding-left: 5% !important;
+}
+.track h4{
+  font-size: 1em;
+  font-weight: 100;
+  padding-left: 5% !important;
+}
+
+.track button {
+  min-height: 100px;
+  max-height: 100px;
+  min-width: 100px;
+  /*background-color: rgb(32,34,241);*/
+  text-align: center;
+  border: 0px;
+  font-size: 3em;
+  padding: 0px !important;
+  margin: 0px !important;
+  color: black;
+}
